@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # Application apps
 
+    'core.apps.CoreConfig',
     'programs.apps.ProgramsConfig',
 ]
 
