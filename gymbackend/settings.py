@@ -41,6 +41,11 @@ INSTALLED_APPS = [
     # Django Rest Framework
 
     'rest_framework',
+
+    # Application apps
+
+    'core.apps.CoreConfig',
+    'programs.apps.ProgramsConfig',
 ]
 
 MIDDLEWARE = [
