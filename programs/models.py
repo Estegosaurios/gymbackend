@@ -10,7 +10,7 @@ class Workout(BaseModel):
 
 
 class Program(BaseModel):
-    name = models.CharField(max_lenght=100)
+    name = models.CharField(max_length=100)
     workouts = models.ManyToManyField(
         Workout,
         through='WorkoutInProgram',
