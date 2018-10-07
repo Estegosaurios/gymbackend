@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Application apps
 
     'core.apps.CoreConfig',
+    'media.apps.MediaConfig',
     'programs.apps.ProgramsConfig',
 ]
 
