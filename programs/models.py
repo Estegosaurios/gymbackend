@@ -24,7 +24,11 @@ class Program(BaseModel):
 
 class WorkoutInProgram(BaseModel):
     date = models.DateField()
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    program = models.ForeignKey(
+        Program,
+        on_delete=models.CASCADE,
+        related_name='workouts_in_program'
+    )
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
 
     def __str__(self):
