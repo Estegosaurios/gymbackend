@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from programs.models import Workout, Program, WorkoutInProgram
+from programs.models import Workout, Program, Set
 from programs.serializers import (
-    WorkoutSerializer, ProgramSerializer, WorkoutInProgramSerializer
+    WorkoutSerializer, ProgramSerializer, SetSerializer
 )
 
 
@@ -16,6 +16,6 @@ class ProgramViewSet(viewsets.ModelViewSet):
     serializer_class = ProgramSerializer
 
 
-class WorkoutInProgramViewSet(viewsets.ModelViewSet):
-    queryset = WorkoutInProgram.objects.all()
-    serializer_class = WorkoutInProgramSerializer
+class SetViewSet(viewsets.ModelViewSet):
+    queryset = Set.objects.all()
+    serializer_class = SetSerializer

@@ -1,20 +1,20 @@
 from rest_framework import serializers
-from programs.models import Workout, Program, WorkoutInProgram
+from programs.models import Workout, Program, Set
 
 
 class WorkoutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workout
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'sets')
 
 
 class ProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = Program
-        fields = ('id', 'name', 'workouts_in_program')
+        fields = ('id', 'name', 'workouts')
 
 
-class WorkoutInProgramSerializer(serializers.ModelSerializer):
+class SetSerializer(serializers.ModelSerializer):
     class Meta:
-        model = WorkoutInProgram
-        fields = ('id', 'date', 'program', 'workout')
+        model = Set
+        fields = ('id', 'times', 'workout')

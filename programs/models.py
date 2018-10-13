@@ -11,29 +11,16 @@ class Workout(BaseModel):
 
 class Program(BaseModel):
     name = models.CharField(max_length=100)
-    workouts = models.ManyToManyField(
-        Workout,
-        through='WorkoutInProgram',
-        through_fields=('program', 'workout'),
-        related_name='programs'
-    )
+    workouts = models.ManyToManyField(Workout)
 
     def __str__(self):
         return self.name
 
 
-class WorkoutInProgram(BaseModel):
-    date = models.DateField()
-    program = models.ForeignKey(
-        Program,
+class Set(BaseModel):
+    times = models.IntegerField()
+    workout = models.ForeignKey(
+        Workout,
         on_delete=models.CASCADE,
-        related_name='workouts_in_program'
+        related_name='sets'
     )
-    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return u'{program}-{workout}. Date: {date}'.format(
-            program=self.program.name,
-            workout=self.workout.name,
-            date=self.date
-        )
